@@ -3,20 +3,10 @@
 module.exports = {
     root: true,
     extends: [
-        "eslint"
+        "ec0lint"
     ],
     parserOptions: {
-        ecmaVersion: 2020
-    },
-
-    /*
-     * it fixes eslint-plugin-jsdoc's reports: "Invalid JSDoc tag name "template" jsdoc/check-tag-names"
-     * refs: https://github.com/gajus/eslint-plugin-jsdoc#check-tag-names
-     */
-    settings: {
-        jsdoc: {
-            mode: "typescript"
-        }
+        ecmaVersion: 2021
     },
 
     overrides: [

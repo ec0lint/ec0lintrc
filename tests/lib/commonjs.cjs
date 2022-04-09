@@ -10,8 +10,8 @@
 //------------------------------------------------------------------------------
 
 const assert = require("assert");
-const eslintrc = require("../../dist/eslintrc.cjs");
-const universal = require("../../dist/eslintrc-universal.cjs");
+const eslintrc = require("../../dist/ec0lintrc.cjs");
+const universal = require("../../dist/ec0lintrc-universal.cjs");
 
 
 //------------------------------------------------------------------------------

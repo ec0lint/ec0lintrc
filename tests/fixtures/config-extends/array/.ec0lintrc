@@ -1,11 +1,11 @@
 {
     "extends": [
-        ".eslintrc1",
-        ".eslintrc2"
+        ".ec0lintrc1",
+        ".ec0lintrc2"
     ],
 
     "rules": {
-        "no-empty": 1
+        "axios-calls": "error"
     },
 
     "env": {

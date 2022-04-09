@@ -1,5 +1,5 @@
 module.exports = {
     rules: {
-        "bar": "error"
+        "axios-calls": "error"
     }
 };

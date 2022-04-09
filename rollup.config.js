@@ -9,7 +9,7 @@ export default [
         treeshake: false,
         output: {
             format: "cjs",
-            file: "dist/eslintrc.cjs",
+            file: "dist/ec0lintrc.cjs",
             sourcemap: true,
             freeze: false
         }
@@ -24,7 +24,7 @@ export default [
         treeshake: false,
         output: {
             format: "cjs",
-            file: "dist/eslintrc-universal.cjs",
+            file: "dist/ec0lintrc-universal.cjs",
             sourcemap: true,
             freeze: false
         }

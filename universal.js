@@ -6,4 +6,4 @@
 // this case (and the `require` in _this_ file does specify the extension).
 
 // eslint-disable-next-line no-undef
-module.exports = require("./dist/eslintrc-universal.cjs");
+module.exports = require("./dist/ec0lintrc-universal.cjs");
