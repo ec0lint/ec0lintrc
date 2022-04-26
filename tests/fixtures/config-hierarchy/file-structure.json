@@ -12,7 +12,7 @@
             "console-wrong-quotes.js": "console.log('bar');\r\n"
         },
         "plugins2": {
-            ".ec0lintrc": "plugins: \r\n    [\"example\", \"eslint-plugin-test\"]\r\n    ",
+            ".ec0lintrc": "plugins: \r\n    [\"example\", \"ec0lint-plugin-test\"]\r\n    ",
             "console-wrong-quotes.js": "console.log('bar');\r\n"
         },
         "process-exit.js": "process.exit(0);\r\n",

@@ -2933,7 +2933,7 @@ describe("ConfigArrayFactory", () => {
                 const teardown = createCustomTeardown({
                     cwd: tempDir,
                     files: {
-                        "node_modules/eslint-plugin-test/index.js": `
+                        "node_modules/ec0lint-plugin-test/index.js": `
                             module.exports = {
                                 environments: {
                                     bar: { globals: { bar: true } }
@@ -2971,7 +2971,7 @@ env:
                 const teardown = createCustomTeardown({
                     cwd: tempDir,
                     files: {
-                        "node_modules/eslint-plugin-test2/index.js": `
+                        "node_modules/ec0lint-plugin-test2/index.js": `
                             module.exports = {
                                 configs: {
                                     foo: { rules: { semi: 2, quotes: 1 } },
@@ -3188,8 +3188,8 @@ env:
         const { prepare, cleanup, getPath } = createCustomTeardown({
             cwd: tempDir,
             files: {
-                "node_modules/@scope/eslint-plugin-example/index.js": "exports.configs = { name: '@scope/eslint-plugin-example' };",
-                "node_modules/eslint-plugin-example/index.js": "exports.configs = { name: 'eslint-plugin-example' };",
+                "node_modules/@scope/ec0lint-plugin-example/index.js": "exports.configs = { name: '@scope/ec0lint-plugin-example' };",
+                "node_modules/ec0lint-plugin-example/index.js": "exports.configs = { name: 'ec0lint-plugin-example' };",
                 "node_modules/eslint-plugin-throws-on-load/index.js": "throw new Error('error thrown while loading this module')"
             }
         });
@@ -3229,7 +3229,7 @@ env:
 
             assertPluginDefinition(
                 loadedPlugins.get("example"),
-                { configs: { name: "eslint-plugin-example" } }
+                { configs: { name: "ec0lint-plugin-example" } }
             );
         });
 
@@ -3237,7 +3237,7 @@ env:
             const teardown = createCustomTeardown({
                 cwd: tempDir,
                 files: {
-                    "subdir/node_modules/eslint-plugin-example/index.js": "exports.configs = { name: 'eslint-plugin-example' };"
+                    "subdir/node_modules/ec0lint-plugin-example/index.js": "exports.configs = { name: 'ec0lint-plugin-example' };"
                 }
             });
 
@@ -3251,18 +3251,18 @@ env:
 
             assertPluginDefinition(
                 loadedPlugins.get("example"),
-                { configs: { name: "eslint-plugin-example" } }
+                { configs: { name: "ec0lint-plugin-example" } }
             );
 
             await teardown.cleanup();
         });
 
         it("should load a plugin when referenced by long name", () => {
-            const loadedPlugins = load("eslint-plugin-example");
+            const loadedPlugins = load("ec0lint-plugin-example");
 
             assertPluginDefinition(
                 loadedPlugins.get("example"),
-                { configs: { name: "eslint-plugin-example" } }
+                { configs: { name: "ec0lint-plugin-example" } }
             );
         });
 
@@ -3298,16 +3298,16 @@ env:
 
             assertPluginDefinition(
                 loadedPlugins.get("@scope/example"),
-                { configs: { name: "@scope/eslint-plugin-example" } }
+                { configs: { name: "@scope/ec0lint-plugin-example" } }
             );
         });
 
         it("should load a scoped plugin when referenced by long name", () => {
-            const loadedPlugins = load("@scope/eslint-plugin-example");
+            const loadedPlugins = load("@scope/ec0lint-plugin-example");
 
             assertPluginDefinition(
                 loadedPlugins.get("@scope/example"),
-                { configs: { name: "@scope/eslint-plugin-example" } }
+                { configs: { name: "@scope/ec0lint-plugin-example" } }
             );
         });
 
@@ -3319,7 +3319,7 @@ env:
             });
 
             it("should load a scoped plugin when referenced by long name, but should not get the plugin if '@scope/' is omitted", () => {
-                const loadedPlugins = load("@scope/eslint-plugin-example");
+                const loadedPlugins = load("@scope/ec0lint-plugin-example");
 
                 assert.strictEqual(loadedPlugins.get("example"), void 0);
             });
@@ -3331,8 +3331,8 @@ env:
         const { prepare, cleanup, getPath } = createCustomTeardown({
             cwd: tempDir,
             files: {
-                "node_modules/eslint-plugin-example1/index.js": "exports.configs = { name: 'eslint-plugin-example1' };",
-                "node_modules/eslint-plugin-example2/index.js": "exports.configs = { name: 'eslint-plugin-example2' };"
+                "node_modules/ec0lint-plugin-example1/index.js": "exports.configs = { name: 'ec0lint-plugin-example1' };",
+                "node_modules/ec0lint-plugin-example2/index.js": "exports.configs = { name: 'ec0lint-plugin-example2' };"
             }
         });
 
@@ -3370,11 +3370,11 @@ env:
 
             assertPluginDefinition(
                 loadedPlugins.get("example1"),
-                { configs: { name: "eslint-plugin-example1" } }
+                { configs: { name: "ec0lint-plugin-example1" } }
             );
             assertPluginDefinition(
                 loadedPlugins.get("example2"),
-                { configs: { name: "eslint-plugin-example2" } }
+                { configs: { name: "ec0lint-plugin-example2" } }
             );
         });
     });

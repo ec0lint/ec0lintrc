@@ -56,7 +56,7 @@ describe("naming", () => {
 
     describe("getNamespaceFromTerm()", () => {
         it("should remove namespace when passed with namespace", () => {
-            const namespace = naming.getNamespaceFromTerm("@namespace/eslint-plugin-test");
+            const namespace = naming.getNamespaceFromTerm("@namespace/ec0lint-plugin-test");
 
             assert.strictEqual(namespace, "@namespace/");
         });
