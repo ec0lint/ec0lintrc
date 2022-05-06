@@ -1,5 +1,5 @@
 module.exports = {
     rules: {
-        "axios-calls": "error"
+        "no-extra-semi": "error"
     }
 };

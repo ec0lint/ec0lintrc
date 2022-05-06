@@ -1,6 +1,6 @@
 {
   "name": "@ec0lint/ec0lintrc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Malwina Kubas @malwinq",
   "description": "ec0lint configuration",
   "type": "module",
@@ -53,8 +53,8 @@
   "devDependencies": {
     "c8": "^7.7.3",
     "chai": "^4.3.4",
-    "ec0lint": "^0.0.19",
-    "ec0lint-config-ec0lint": "^0.0.1",
+    "ec0lint": "^0.0.22",
+    "ec0lint-config-ec0lint": "^0.0.5",
     "eslint": "^7.31.0",
     "eslint-plugin-jsdoc": ">=36.0.6",
     "eslint-plugin-node": "^11.1.0",

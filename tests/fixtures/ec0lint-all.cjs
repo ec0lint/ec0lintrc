@@ -1,6 +1,5 @@
 module.exports = {
     rules: {
-        "axios-calls": "error",
-        "font-format": "error"
+        "no-extra-semi": "error"
     }
 };
