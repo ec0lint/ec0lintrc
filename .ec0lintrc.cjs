@@ -19,7 +19,6 @@ module.exports = {
                     message: "`assert.doesNotThrow()` should be replaced with a comment next to the code."
                 }],
 
-                // Overcome https://github.com/mysticatea/eslint-plugin-node/issues/250
                 "node/no-unsupported-features/es-syntax": ["error", {
                     ignores: [
                         "modules",
