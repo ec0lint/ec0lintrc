@@ -158,7 +158,7 @@ describe("CascadingConfigArrayFactory", () => {
              * @returns {void}
              */
             function onWarning(w) {
-                if (w.code.startsWith("ESLINT_")) {
+                if (w.code.startsWith("EC0LINT_")) {
                     warnings.push({ code: w.code, message: w.message });
                 }
             }
@@ -330,10 +330,10 @@ describe("CascadingConfigArrayFactory", () => {
                         await delay();
                     });
 
-                    it("should raise an ESLINT_PERSONAL_CONFIG_SUPPRESS warning.", () => {
+                    it("should raise an EC0LINT_PERSONAL_CONFIG_SUPPRESS warning.", () => {
                         assert.deepStrictEqual(warnings, [
                             {
-                                code: "ESLINT_PERSONAL_CONFIG_SUPPRESS",
+                                code: "EC0LINT_PERSONAL_CONFIG_SUPPRESS",
                                 message: `'~/.ec0lintrc.*' config files have been deprecated. Please remove it or add 'root:true' to the config files in your projects in order to avoid loading '~/.ec0lintrc.*' accidentally. (found in "..${path.sep}${uniqueHomeDirName}${path.sep}.ec0lintrc.json")`
                             }
                         ]);
@@ -452,10 +452,10 @@ describe("CascadingConfigArrayFactory", () => {
                         await delay();
                     });
 
-                    it("should raise an ESLINT_PERSONAL_CONFIG_LOAD warning.", () => {
+                    it("should raise an EC0LINT_PERSONAL_CONFIG_LOAD warning.", () => {
                         assert.deepStrictEqual(warnings, [
                             {
-                                code: "ESLINT_PERSONAL_CONFIG_LOAD",
+                                code: "EC0LINT_PERSONAL_CONFIG_LOAD",
                                 message: `'~/.ec0lintrc.*' config files have been deprecated. Please use a config file per project or the '--config' option. (found in "..${path.sep}${uniqueHomeDirName}${path.sep}.ec0lintrc.json")`
                             }
                         ]);
@@ -632,7 +632,7 @@ describe("CascadingConfigArrayFactory", () => {
                     .toCompatibleObjectAsConfigFileContent();
             }
 
-            describe("with eslint built-in config paths", () => {
+            describe("with ec0lint built-in config paths", () => {
                 let fixtureDir;
 
                 /**
@@ -1824,7 +1824,7 @@ describe("CascadingConfigArrayFactory", () => {
                      * @returns {void}
                      */
                     function onWarning(w) {
-                        if (w.code.startsWith("ESLINT_")) {
+                        if (w.code.startsWith("EC0LINT_")) {
                             warning = w;
                         }
                     }
@@ -1860,7 +1860,7 @@ describe("CascadingConfigArrayFactory", () => {
                 });
             });
 
-            describe("with eslint built-in config callbacks", () => {
+            describe("with ec0lint built-in config callbacks", () => {
                 let fixtureDir;
 
                 /**
@@ -3148,7 +3148,7 @@ describe("CascadingConfigArrayFactory", () => {
             };
             const { prepare, cleanup, getPath } = createCustomTeardown({ cwd: root, files });
 
-            describe("with eslint built-in config paths", () => {
+            describe("with ec0lint built-in config paths", () => {
 
                 /** @type {Map<string, Object>} */
                 let additionalPluginPool;
@@ -3213,7 +3213,7 @@ describe("CascadingConfigArrayFactory", () => {
                 });
             });
 
-            describe("with eslint built-in config callbacks", () => {
+            describe("with ec0lint built-in config callbacks", () => {
 
                 /** @type {Map<string, Object>} */
                 let additionalPluginPool;

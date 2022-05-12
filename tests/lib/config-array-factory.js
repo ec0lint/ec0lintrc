@@ -567,7 +567,7 @@ describe("ConfigArrayFactory", () => {
                 cwd: tempDir,
                 files: {
                     "node_modules/custom-xxx-parser/index.js": "exports.name = 'xxx-parser';",
-                    "node_modules/custom-eslint-plugin-xxx/index.js": "exports.configs = { name: 'eslint-plugin-xxx' };",
+                    "node_modules/custom-ec0lint-plugin-xxx/index.js": "exports.configs = { name: 'ec0lint-plugin-xxx' };",
                     "node_modules/custom-ec0lint-config-foo/index.js": "exports.env = { browser: true }"
                 }
             });
@@ -624,12 +624,12 @@ describe("ConfigArrayFactory", () => {
                 it("should have the package object at 'plugins[id].definition' property.", () => {
                     assertPluginDefinition(
                         element.plugins.xxx.definition,
-                        { configs: { name: "eslint-plugin-xxx" } }
+                        { configs: { name: "ec0lint-plugin-xxx" } }
                     );
                 });
 
                 it("should have the path to the package at 'plugins[id].filePath' property.", () => {
-                    assert.strictEqual(element.plugins.xxx.filePath, path.join(getPath(), "node_modules/custom-eslint-plugin-xxx/index.js"));
+                    assert.strictEqual(element.plugins.xxx.filePath, path.join(getPath(), "node_modules/custom-ec0lint-plugin-xxx/index.js"));
                 });
             });
 
@@ -779,10 +779,10 @@ describe("ConfigArrayFactory", () => {
             const { prepare, cleanup, getPath } = createCustomTeardown({
                 cwd: tempDir,
                 files: {
-                    "node_modules/eslint-plugin-ext/index.js": "exports.processors = { '.abc': {}, '.xyz': {}, other: {} };",
-                    "node_modules/eslint-plugin-subdir/index.js": "",
-                    "node_modules/eslint-plugin-xxx/index.js": "exports.configs = { name: 'eslint-plugin-xxx' };",
-                    "subdir/node_modules/eslint-plugin-subdir/index.js": "",
+                    "node_modules/ec0lint-plugin-ext/index.js": "exports.processors = { '.abc': {}, '.xyz': {}, other: {} };",
+                    "node_modules/ec0lint-plugin-subdir/index.js": "",
+                    "node_modules/ec0lint-plugin-xxx/index.js": "exports.configs = { name: 'ec0lint-plugin-xxx' };",
+                    "subdir/node_modules/ec0lint-plugin-subdir/index.js": "",
                     "parser.js": ""
                 }
             });
@@ -818,12 +818,12 @@ describe("ConfigArrayFactory", () => {
                 it("should have the package object at 'plugins[id].definition' property.", () => {
                     assertPluginDefinition(
                         element.plugins.xxx.definition,
-                        { configs: { name: "eslint-plugin-xxx" } }
+                        { configs: { name: "ec0lint-plugin-xxx" } }
                     );
                 });
 
                 it("should have the path to the package at 'plugins[id].filePath' property.", () => {
-                    assert.strictEqual(element.plugins.xxx.filePath, path.join(getPath(), "node_modules/eslint-plugin-xxx/index.js"));
+                    assert.strictEqual(element.plugins.xxx.filePath, path.join(getPath(), "node_modules/ec0lint-plugin-xxx/index.js"));
                 });
             });
 
@@ -843,7 +843,7 @@ describe("ConfigArrayFactory", () => {
                 });
 
                 it("should have the loading error at 'plugins[id].error' property.", () => {
-                    assert.match(element.plugins.invalid.error.message, /Cannot find module 'eslint-plugin-invalid'/u);
+                    assert.match(element.plugins.invalid.error.message, /Cannot find module 'ec0lint-plugin-invalid'/u);
                 });
             });
 
@@ -856,7 +856,7 @@ describe("ConfigArrayFactory", () => {
 
                     assert.strictEqual(
                         configArray[0].plugins.subdir.filePath,
-                        path.resolve(tempDir, "subdir/node_modules/eslint-plugin-subdir/index.js")
+                        path.resolve(tempDir, "subdir/node_modules/ec0lint-plugin-subdir/index.js")
                     );
                 });
             });
@@ -941,7 +941,7 @@ describe("ConfigArrayFactory", () => {
         });
 
         describe("'extends' details", () => {
-            describe("'with eslint built-in config paths", () => {
+            describe("'with ec0lint built-in config paths", () => {
                 let prepare, cleanup, getPath;
 
                 before(() => {
@@ -961,9 +961,9 @@ describe("ConfigArrayFactory", () => {
                                     ]
                                 }
                             `,
-                            "node_modules/eslint-plugin-foo/index.js": "exports.configs = { bar: { env: { es6: true } } }",
-                            "node_modules/eslint-plugin-invalid-config/index.js": "exports.configs = { foo: {} }",
-                            "node_modules/eslint-plugin-error/index.js": "throw new Error('xxx error')",
+                            "node_modules/ec0lint-plugin-foo/index.js": "exports.configs = { bar: { env: { es6: true } } }",
+                            "node_modules/ec0lint-plugin-invalid-config/index.js": "exports.configs = { foo: {} }",
+                            "node_modules/ec0lint-plugin-error/index.js": "throw new Error('xxx error')",
                             "base.js": "module.exports = { rules: { semi: [2, 'always'] } };"
                         }
                     }));
@@ -987,7 +987,7 @@ describe("ConfigArrayFactory", () => {
                     }, /Failed to load config "not-exist" to extend from./u);
                 });
 
-                it("should throw an error when an eslint config is not found", () => {
+                it("should throw an error when an ec0lint config is not found", () => {
                     assert.throws(() => {
                         create({
                             extends: "ec0lint:foo",
@@ -1014,7 +1014,7 @@ describe("ConfigArrayFactory", () => {
                     }, /'extends' cannot use a file path for plugins/u);
                 });
 
-                it("should throw an error when an eslint config is not found", () => {
+                it("should throw an error when an ec0lint config is not found", () => {
                     assert.throws(() => {
                         create({
                             extends: "ec0lint:foo",
@@ -1130,7 +1130,7 @@ describe("ConfigArrayFactory", () => {
                     it("should have the config data of 'plugin:foo/bar' at the first element.", () => {
                         assertConfigArrayElement(configArray[0], {
                             name: ".ec0lintrc » plugin:foo/bar",
-                            filePath: path.join(getPath(), "node_modules/eslint-plugin-foo/index.js"),
+                            filePath: path.join(getPath(), "node_modules/ec0lint-plugin-foo/index.js"),
                             env: { es6: true }
                         });
                     });
@@ -1260,7 +1260,7 @@ describe("ConfigArrayFactory", () => {
                 });
             });
 
-            describe("'with eslint built-in config callbacks", () => {
+            describe("'with ec0lint built-in config callbacks", () => {
                 let prepare, cleanup, getPath;
 
                 before(() => {
@@ -1280,9 +1280,9 @@ describe("ConfigArrayFactory", () => {
                                 ]
                             }
                         `,
-                            "node_modules/eslint-plugin-foo/index.js": "exports.configs = { bar: { env: { es6: true } } }",
-                            "node_modules/eslint-plugin-invalid-config/index.js": "exports.configs = { foo: {} }",
-                            "node_modules/eslint-plugin-error/index.js": "throw new Error('xxx error')",
+                            "node_modules/ec0lint-plugin-foo/index.js": "exports.configs = { bar: { env: { es6: true } } }",
+                            "node_modules/ec0lint-plugin-invalid-config/index.js": "exports.configs = { foo: {} }",
+                            "node_modules/ec0lint-plugin-error/index.js": "throw new Error('xxx error')",
                             "base.js": "module.exports = { rules: { semi: [2, 'always'] } };"
                         }
                     }));
@@ -1306,7 +1306,7 @@ describe("ConfigArrayFactory", () => {
                     }, /Failed to load config "not-exist" to extend from./u);
                 });
 
-                it("should throw an error when an eslint config is not found", () => {
+                it("should throw an error when an ec0lint config is not found", () => {
                     assert.throws(() => {
                         create({
                             extends: "ec0lint:foo",
@@ -1333,7 +1333,7 @@ describe("ConfigArrayFactory", () => {
                     }, /'extends' cannot use a file path for plugins/u);
                 });
 
-                it("should throw an error when an eslint config is not found", () => {
+                it("should throw an error when an ec0lint config is not found", () => {
                     assert.throws(() => {
                         create({
                             extends: "ec0lint:foo",
@@ -1447,7 +1447,7 @@ describe("ConfigArrayFactory", () => {
                     it("should have the config data of 'plugin:foo/bar' at the first element.", () => {
                         assertConfigArrayElement(configArray[0], {
                             name: ".ec0lintrc » plugin:foo/bar",
-                            filePath: path.join(getPath(), "node_modules/eslint-plugin-foo/index.js"),
+                            filePath: path.join(getPath(), "node_modules/ec0lint-plugin-foo/index.js"),
                             env: { es6: true }
                         });
                     });
@@ -1859,7 +1859,7 @@ describe("ConfigArrayFactory", () => {
                     cwd: getPath(),
                     additionalPluginPool: new Map([
                         ["abc", { configs: { name: "abc" } }],
-                        ["eslint-plugin-def", { configs: { name: "def" } }]
+                        ["ec0lint-plugin-def", { configs: { name: "def" } }]
                     ])
                 });
             });
@@ -1877,7 +1877,7 @@ describe("ConfigArrayFactory", () => {
             });
 
             it("should use the matched plugin in the additional plugin pool; long to short", () => {
-                const configArray = create({ plugins: ["eslint-plugin-abc"] });
+                const configArray = create({ plugins: ["ec0lint-plugin-abc"] });
 
                 assert.strictEqual(configArray[0].plugins.abc.id, "abc");
                 assertPluginDefinition(
@@ -1897,7 +1897,7 @@ describe("ConfigArrayFactory", () => {
             });
 
             it("should use the matched plugin in the additional plugin pool; long to long", () => {
-                const configArray = create({ plugins: ["eslint-plugin-def"] });
+                const configArray = create({ plugins: ["ec0lint-plugin-def"] });
 
                 assert.strictEqual(configArray[0].plugins.def.id, "def");
                 assertPluginDefinition(
@@ -1914,8 +1914,8 @@ describe("ConfigArrayFactory", () => {
             "node_modules/ec0lint-config-foo/index.js": "exports.env = { browser: true }",
             "node_modules/ec0lint-config-one/index.js": "module.exports = { extends: 'two', env: { browser: true } }",
             "node_modules/ec0lint-config-two/index.js": "module.exports = { env: { node: true } }",
-            "node_modules/eslint-plugin-invalid-parser/index.js": "exports.configs = { foo: { parser: 'nonexistent-parser' } }",
-            "node_modules/eslint-plugin-invalid-config/index.js": "exports.configs = { foo: {} }",
+            "node_modules/ec0lint-plugin-invalid-parser/index.js": "exports.configs = { foo: { parser: 'nonexistent-parser' } }",
+            "node_modules/ec0lint-plugin-invalid-config/index.js": "exports.configs = { foo: {} }",
             "js/.ec0lintrc.js": "module.exports = { rules: { semi: [2, 'always'] } };",
             "cjs/.ec0lintrc.cjs": "module.exports = { rules: { semi: [2, 'always'] } };",
             "json/.ec0lintrc.json": "{ \"rules\": { \"quotes\": [2, \"double\"] } }",
@@ -1924,7 +1924,7 @@ describe("ConfigArrayFactory", () => {
         };
         const { prepare, cleanup, getPath } = createCustomTeardown({ cwd: tempDir, files });
 
-        describe("with eslint built-in config paths", () => {
+        describe("with ec0lint built-in config paths", () => {
             let factory;
 
             beforeEach(async () => {
@@ -1981,7 +1981,7 @@ describe("ConfigArrayFactory", () => {
                 }, /Failed to load config "not-exist" to extend from./u);
             });
 
-            it("should throw an error when an eslint config is not found", () => {
+            it("should throw an error when an ec0lint config is not found", () => {
                 assert.throws(() => {
                     applyExtends({
                         extends: "ec0lint:foo",
@@ -2044,7 +2044,7 @@ describe("ConfigArrayFactory", () => {
                 } catch (err) {
                     assert.strictEqual(err.messageTemplate, "plugin-missing");
                     assert.deepStrictEqual(err.messageData, {
-                        pluginName: "eslint-plugin-nonexistent-plugin",
+                        pluginName: "ec0lint-plugin-nonexistent-plugin",
                         resolvePluginsRelativeTo: getPath(),
                         importerName: "whatever"
                     });
@@ -2062,7 +2062,7 @@ describe("ConfigArrayFactory", () => {
                 } catch (err) {
                     assert.strictEqual(err.messageTemplate, "plugin-missing");
                     assert.deepStrictEqual(err.messageData, {
-                        pluginName: "eslint-plugin-nonexistent-plugin",
+                        pluginName: "ec0lint-plugin-nonexistent-plugin",
                         resolvePluginsRelativeTo: getPath(),
                         importerName: "whatever"
                     });
@@ -2140,7 +2140,7 @@ describe("ConfigArrayFactory", () => {
             });
         });
 
-        describe("with eslint built-in config callbacks", () => {
+        describe("with ec0lint built-in config callbacks", () => {
             let factory;
 
             /**
@@ -2222,7 +2222,7 @@ describe("ConfigArrayFactory", () => {
                 }, /Failed to load config "not-exist" to extend from./u);
             });
 
-            it("should throw an error when an eslint config is not found", () => {
+            it("should throw an error when an ec0lint config is not found", () => {
                 assert.throws(() => {
                     applyExtends({
                         extends: "ec0lint:foo",
@@ -2285,7 +2285,7 @@ describe("ConfigArrayFactory", () => {
                 } catch (err) {
                     assert.strictEqual(err.messageTemplate, "plugin-missing");
                     assert.deepStrictEqual(err.messageData, {
-                        pluginName: "eslint-plugin-nonexistent-plugin",
+                        pluginName: "ec0lint-plugin-nonexistent-plugin",
                         resolvePluginsRelativeTo: getPath(),
                         importerName: "whatever"
                     });
@@ -2303,7 +2303,7 @@ describe("ConfigArrayFactory", () => {
                 } catch (err) {
                     assert.strictEqual(err.messageTemplate, "plugin-missing");
                     assert.deepStrictEqual(err.messageData, {
-                        pluginName: "eslint-plugin-nonexistent-plugin",
+                        pluginName: "ec0lint-plugin-nonexistent-plugin",
                         resolvePluginsRelativeTo: getPath(),
                         importerName: "whatever"
                     });
@@ -3104,9 +3104,9 @@ env:
                 "node_modules/ec0lint-config-ec0lint-configfoo/index.js": "",
                 "node_modules/@foo/ec0lint-config/index.js": "",
                 "node_modules/@foo/ec0lint-config-bar/index.js": "",
-                "node_modules/eslint-plugin-foo/index.js": "exports.configs = { bar: {} }",
-                "node_modules/@foo/eslint-plugin/index.js": "exports.configs = { bar: {} }",
-                "node_modules/@foo/eslint-plugin-bar/index.js": "exports.configs = { baz: {} }",
+                "node_modules/ec0lint-plugin-foo/index.js": "exports.configs = { bar: {} }",
+                "node_modules/@foo/ec0lint-plugin/index.js": "exports.configs = { bar: {} }",
+                "node_modules/@foo/ec0lint-plugin-bar/index.js": "exports.configs = { baz: {} }",
                 "foo/bar/.ec0lintrc": "",
                 ".ec0lintrc": ""
             }
@@ -3145,9 +3145,9 @@ env:
                 { input: "@foo/ec0lint-config", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-config/index.js") },
                 { input: "@foo", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-config/index.js") },
                 { input: "@foo/bar", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-config-bar/index.js") },
-                { input: "plugin:foo/bar", expected: path.resolve(tempDir, "node_modules/eslint-plugin-foo/index.js") },
-                { input: "plugin:@foo/bar", expected: path.resolve(tempDir, "node_modules/@foo/eslint-plugin/index.js") },
-                { input: "plugin:@foo/bar/baz", expected: path.resolve(tempDir, "node_modules/@foo/eslint-plugin-bar/index.js") }
+                { input: "plugin:foo/bar", expected: path.resolve(tempDir, "node_modules/ec0lint-plugin-foo/index.js") },
+                { input: "plugin:@foo/bar", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-plugin/index.js") },
+                { input: "plugin:@foo/bar/baz", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-plugin-bar/index.js") }
             ]) {
                 it(`should return ${expected} when passed ${input}`, () => {
                     const result = resolve(input);
@@ -3170,9 +3170,9 @@ env:
                 { input: "@foo/ec0lint-config", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-config/index.js") },
                 { input: "@foo", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-config/index.js") },
                 { input: "@foo/bar", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-config-bar/index.js") },
-                { input: "plugin:foo/bar", expected: path.resolve(tempDir, "node_modules/eslint-plugin-foo/index.js") },
-                { input: "plugin:@foo/bar", expected: path.resolve(tempDir, "node_modules/@foo/eslint-plugin/index.js") },
-                { input: "plugin:@foo/bar/baz", expected: path.resolve(tempDir, "node_modules/@foo/eslint-plugin-bar/index.js") }
+                { input: "plugin:foo/bar", expected: path.resolve(tempDir, "node_modules/ec0lint-plugin-foo/index.js") },
+                { input: "plugin:@foo/bar", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-plugin/index.js") },
+                { input: "plugin:@foo/bar/baz", expected: path.resolve(tempDir, "node_modules/@foo/ec0lint-plugin-bar/index.js") }
             ]) {
                 it(`should return ${expected} when passed ${input}`, () => {
                     const result = resolve(input, relativePath);
@@ -3190,7 +3190,7 @@ env:
             files: {
                 "node_modules/@scope/ec0lint-plugin-example/index.js": "exports.configs = { name: '@scope/ec0lint-plugin-example' };",
                 "node_modules/ec0lint-plugin-example/index.js": "exports.configs = { name: 'ec0lint-plugin-example' };",
-                "node_modules/eslint-plugin-throws-on-load/index.js": "throw new Error('error thrown while loading this module')"
+                "node_modules/ec0lint-plugin-throws-on-load/index.js": "throw new Error('error thrown while loading this module')"
             }
         });
 
