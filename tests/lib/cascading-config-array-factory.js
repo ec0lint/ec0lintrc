@@ -1450,7 +1450,7 @@ describe("CascadingConfigArrayFactory", () => {
 
                         assert.throws(() => {
                             getConfig(factory, filePath);
-                        }, "No ESLint configuration found");
+                        }, "No ec0lint configuration found");
                     });
 
                     it("should throw an error if no local config was found and ~/package.json contains no ec0lintConfig section", () => {
@@ -1467,7 +1467,7 @@ describe("CascadingConfigArrayFactory", () => {
 
                         assert.throws(() => {
                             getConfig(factory, filePath);
-                        }, "No ESLint configuration found");
+                        }, "No ec0lint configuration found");
                     });
 
                     it("should not throw an error if no local config and no personal config was found but useEc0lintrc is false", () => {
@@ -2678,7 +2678,7 @@ describe("CascadingConfigArrayFactory", () => {
 
                         assert.throws(() => {
                             getConfig(factory, filePath);
-                        }, "No ESLint configuration found");
+                        }, "No ec0lint configuration found");
                     });
 
                     it("should throw an error if no local config was found and ~/package.json contains no ec0lintConfig section", () => {
@@ -2695,7 +2695,7 @@ describe("CascadingConfigArrayFactory", () => {
 
                         assert.throws(() => {
                             getConfig(factory, filePath);
-                        }, "No ESLint configuration found");
+                        }, "No ec0lint configuration found");
                     });
 
                     it("should not throw an error if no local config and no personal config was found but useEc0lintrc is false", () => {

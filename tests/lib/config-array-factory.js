@@ -3087,7 +3087,7 @@ env:
             try {
                 load(factory, "invalid/invalid-top-level-property.yml");
             } catch (err) {
-                assert.include(err.message, `ESLint configuration in ${`invalid${path.sep}invalid-top-level-property.yml`} is invalid`);
+                assert.include(err.message, `ec0lint configuration in ${`invalid${path.sep}invalid-top-level-property.yml`} is invalid`);
                 return;
             }
             assert.fail();
