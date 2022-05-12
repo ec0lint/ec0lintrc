@@ -672,7 +672,7 @@ describe("CascadingConfigArrayFactory", () => {
 
                 it("should create config object when using baseConfig with extends", () => {
                     const customBaseConfig = {
-                        extends: path.resolve(dirname, "../fixtures/config-extends/array/.ec0lintrc")
+                        extends: path.resolve(dirname, "../fixtures/config-extends/array/.ec0lintrc1")
                     };
                     const factory = new CascadingConfigArrayFactory({
                         cwd: fixtureDir,
