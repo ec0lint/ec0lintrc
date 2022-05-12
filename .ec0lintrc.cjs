@@ -13,7 +13,7 @@ module.exports = {
     overrides: [
         {
             files: ["tests/**/*"],
-            env: { mocha: true, es6: true },
+            env: { mocha: true, es6: true, node: true, browser: true },
             rules: {
                 "no-restricted-syntax": ["error", {
                     selector: "CallExpression[callee.object.name='assert'][callee.property.name='doesNotThrow']",
