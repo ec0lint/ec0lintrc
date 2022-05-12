@@ -19,6 +19,7 @@ module.exports = {
                     selector: "CallExpression[callee.object.name='assert'][callee.property.name='doesNotThrow']",
                     message: "`assert.doesNotThrow()` should be replaced with a comment next to the code."
                 }],
+            },
         }
     ]
 };
