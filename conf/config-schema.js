@@ -14,7 +14,7 @@ const baseConfigProperties = {
         additionalItems: false
     },
     parser: { type: ["string", "null"] },
-    parserOptions: { type: "object" },
+    parserOptions: { type: "object", sourceType: "module" },
     plugins: { type: "array" },
     processor: { type: "string" },
     rules: { type: "object" },
