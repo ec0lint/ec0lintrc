@@ -5,7 +5,12 @@
 
 const baseConfigProperties = {
     $schema: { type: "string" },
-    env: { type: "object" },
+    env: {
+        type: "object",
+        es6: true,
+        node: true,
+        browser: true
+     },
     extends: { $ref: "#/definitions/stringOrStrings" },
     globals: { type: "object" },
     overrides: {
