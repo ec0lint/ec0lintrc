@@ -14,9 +14,8 @@ module.exports = {
         {
             files: ["tests/**/*"],
             env: {
-                mocha: true, 
+                mocha: true,
                 es6: true,
-                node: true,
                 browser: true
             },
             rules: {

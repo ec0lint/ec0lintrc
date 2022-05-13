@@ -8,7 +8,6 @@ const baseConfigProperties = {
     env: {
         type: "object",
         es6: true,
-        node: true,
         browser: true
     },
     extends: { $ref: "#/definitions/stringOrStrings" },
