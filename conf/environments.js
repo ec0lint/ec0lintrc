@@ -138,7 +138,6 @@ export default new Map(Object.entries({
 
     // Frameworks
     commonjs: {
-        globals: globals.commonjs,
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
