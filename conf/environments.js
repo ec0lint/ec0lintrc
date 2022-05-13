@@ -123,7 +123,8 @@ export default new Map(Object.entries({
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
-            }
+            },
+            sourceType: "module"
         }
     },
     "shared-node-browser": {
@@ -141,7 +142,8 @@ export default new Map(Object.entries({
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
-            }
+            },
+            sourceType: "module"
         }
     },
     amd: {
@@ -161,9 +163,6 @@ export default new Map(Object.entries({
     },
     jquery: {
         globals: globals.jquery
-    },
-    qunit: {
-        globals: globals.qunit
     },
     prototypejs: {
         globals: globals.prototypejs
