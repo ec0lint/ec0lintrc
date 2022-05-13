@@ -120,7 +120,6 @@ export default new Map(Object.entries({
         globals: globals.browser
     },
     node: {
-        globals: globals.node,
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
