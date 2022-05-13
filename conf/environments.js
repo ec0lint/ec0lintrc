@@ -99,7 +99,8 @@ export default new Map(Object.entries({
     es2020: {
         globals: { ...newGlobals2015, ...newGlobals2017, ...newGlobals2020 },
         parserOptions: {
-            ecmaVersion: 11
+            ecmaVersion: 11,
+            sourceType: "module"
         }
     },
     es2021: {
