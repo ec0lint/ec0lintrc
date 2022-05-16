@@ -6,8 +6,10 @@ module.exports = {
         "ec0lint"
     ],
     parserOptions: {
-        ecmaVersion: 2020
+        ecmaVersion: 2020,
+        sourceType: "module"
     },
+    sourceType: "module",
 
     overrides: [
         {
