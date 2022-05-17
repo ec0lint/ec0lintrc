@@ -6,8 +6,7 @@ module.exports = {
         "ec0lint"
     ],
     parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: "module"
+        ecmaVersion: 2020
     },
 
     overrides: [
@@ -18,13 +17,6 @@ module.exports = {
                 "no-restricted-syntax": ["error", {
                     selector: "CallExpression[callee.object.name='assert'][callee.property.name='doesNotThrow']",
                     message: "`assert.doesNotThrow()` should be replaced with a comment next to the code."
-                }],
-
-                "node/no-unsupported-features/es-syntax": ["error", {
-                    ignores: [
-                        "modules",
-                        "dynamicImport"
-                    ]
                 }]
             }
         }
