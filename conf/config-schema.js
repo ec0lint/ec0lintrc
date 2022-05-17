@@ -5,11 +5,7 @@
 
 const baseConfigProperties = {
     $schema: { type: "string" },
-    env: {
-        type: "object",
-        es6: true,
-        browser: true
-    },
+    env: { type: "object" },
     extends: { $ref: "#/definitions/stringOrStrings" },
     globals: { type: "object" },
     overrides: {
@@ -18,8 +14,7 @@ const baseConfigProperties = {
         additionalItems: false
     },
     parser: { type: ["string", "null"] },
-    parserOptions: { type: "object", sourceType: "module" },
-    sourceType: "module",
+    parserOptions: { type: "object" },
     plugins: { type: "array" },
     processor: { type: "string" },
     rules: { type: "object" },

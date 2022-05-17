@@ -99,8 +99,7 @@ export default new Map(Object.entries({
     es2020: {
         globals: { ...newGlobals2015, ...newGlobals2017, ...newGlobals2020 },
         parserOptions: {
-            ecmaVersion: 11,
-            sourceType: "module"
+            ecmaVersion: 11
         }
     },
     es2021: {
@@ -121,13 +120,12 @@ export default new Map(Object.entries({
         globals: globals.browser
     },
     node: {
+        globals: globals.node,
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
-            },
-        },
-        sourceType: "module",
-        globals: globals.node
+            }
+        }
     },
     "shared-node-browser": {
         globals: globals["shared-node-browser"]
@@ -144,8 +142,7 @@ export default new Map(Object.entries({
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
-            },
-            sourceType: "module"
+            }
         }
     },
     amd: {
