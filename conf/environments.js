@@ -125,8 +125,8 @@ export default new Map(Object.entries({
             ecmaFeatures: {
                 globalReturn: true
             },
-            sourceType: "module"
-        }
+        },
+        sourceType: "module"
     },
     "shared-node-browser": {
         globals: globals["shared-node-browser"]
