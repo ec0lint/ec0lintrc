@@ -814,7 +814,6 @@ describe("FlatCompat", () => {
             const result = compat.env({
                 node: true
             });
-
             assert.strictEqual(result.length, 1);
             assert.deepStrictEqual(result[0], {
                 languageOptions: {

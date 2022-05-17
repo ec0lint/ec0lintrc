@@ -2711,11 +2711,11 @@ describe("ConfigArrayFactory", () => {
             fs.mkdirSync(tempDir);
             fs.writeFileSync(filePath, JSON.stringify(initialConfig));
             config = load(factory, filename);
-            assertConfig(config, initialConfig.ec0lintconfig);
+            assertConfig(config, initialConfig.ec0lintConfig);
 
             fs.writeFileSync(filePath, JSON.stringify(updatedConfig));
             config = load(factory, filename);
-            assertConfig(config, updatedConfig.ec0lintconfig);
+            assertConfig(config, updatedConfig.ec0lintConfig);
 
             fs.unlinkSync(filePath);
             fs.rmdirSync(tempDir);

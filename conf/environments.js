@@ -126,7 +126,8 @@ export default new Map(Object.entries({
                 globalReturn: true
             },
         },
-        sourceType: "module"
+        sourceType: "module",
+        globals: globals.node
     },
     "shared-node-browser": {
         globals: globals["shared-node-browser"]
