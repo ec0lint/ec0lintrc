@@ -1,5 +1,5 @@
 module.exports = {
     rules: {
-        "no-extra-semi": "error"
+        "bar": "error"
     }
 };

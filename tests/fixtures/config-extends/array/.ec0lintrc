@@ -5,7 +5,7 @@
     ],
 
     "rules": {
-        "no-extra-semi": "error"
+        "no-empty": 1
     },
 
     "env": {
