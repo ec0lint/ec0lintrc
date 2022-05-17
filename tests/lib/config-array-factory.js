@@ -1967,7 +1967,7 @@ describe("ConfigArrayFactory", () => {
                 const config = applyExtends({
                     extends: "ec0lint:all"
                 });
-                assert.strictEqual(config, "ala");
+                assert.strictEqual(config.rules, "ala");
                 assert.strictEqual(config.rules.eqeqeq[0], "error");
                 assert.strictEqual(config.rules.curly[0], "error");
             });
@@ -2209,6 +2209,7 @@ describe("ConfigArrayFactory", () => {
                     extends: "ec0lint:all"
                 });
 
+                assert.strictEqual(config, "ala");
                 assert.strictEqual(config.rules.eqeqeq[0], "error");
                 assert.strictEqual(config.rules.curly[0], "error");
             });

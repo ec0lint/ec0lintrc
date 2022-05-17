@@ -1,5 +1,6 @@
 module.exports = {
     rules: {
-        "no-extra-semi": "error"
+        "eqeqeq": ["error"],
+        "curly": ["error"]
     }
 };
