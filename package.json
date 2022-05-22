@@ -1,6 +1,6 @@
 {
   "name": "@ec0lint/ec0lintrc",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "author": "Malwina Kubas @malwinq",
   "description": "ec0lint configuration",
   "type": "module",
