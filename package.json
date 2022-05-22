@@ -1,6 +1,6 @@
 {
   "name": "@ec0lint/ec0lintrc",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "author": "Malwina Kubas @malwinq",
   "description": "ec0lint configuration",
   "type": "module",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "c8": "^7.7.3",
     "chai": "^4.3.4",
-    "ec0lint": "^0.0.25",
+    "ec0lint": "^0.0.27",
     "ec0lint-config-ec0lint": "^0.0.8",
     "eslint": "^7.31.0",
     "fs-teardown": "^0.1.3",
