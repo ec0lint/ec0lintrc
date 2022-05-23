@@ -80,7 +80,7 @@ describe("ConfigDependency", () => {
         let output = "";
         const localConsole = new Console(
             new class extends Writable {
-                write(chunk) { // eslint-disable-line class-methods-use-this
+                write(chunk) { // ec0lint-disable-line class-methods-use-this
                     output += chunk;
                 }
             }()

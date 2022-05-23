@@ -18,16 +18,16 @@ describe("naming", () => {
     describe("normalizePackageName()", () => {
 
         [
-            ["foo", "eslint-config-foo"],
-            ["eslint-config-foo", "eslint-config-foo"],
-            ["@z/foo", "@z/eslint-config-foo"],
-            ["@z\\foo", "@z/eslint-config-foo"],
-            ["@z\\foo\\bar.js", "@z/eslint-config-foo/bar.js"],
-            ["@z/eslint-config", "@z/eslint-config"],
-            ["@z/eslint-config-foo", "@z/eslint-config-foo"]
+            ["foo", "ec0lint-config-foo"],
+            ["ec0lint-config-foo", "ec0lint-config-foo"],
+            ["@z/foo", "@z/ec0lint-config-foo"],
+            ["@z\\foo", "@z/ec0lint-config-foo"],
+            ["@z\\foo\\bar.js", "@z/ec0lint-config-foo/bar.js"],
+            ["@z/ec0lint-config", "@z/ec0lint-config"],
+            ["@z/ec0lint-config-foo", "@z/ec0lint-config-foo"]
         ].forEach(([input, expected]) => {
             it(`should return ${expected} when passed ${input}`, () => {
-                const result = naming.normalizePackageName(input, "eslint-config");
+                const result = naming.normalizePackageName(input, "ec0lint-config");
 
                 assert.strictEqual(result, expected);
             });
@@ -39,14 +39,14 @@ describe("naming", () => {
 
         [
             ["foo", "foo"],
-            ["eslint-config-foo", "foo"],
+            ["ec0lint-config-foo", "foo"],
             ["@z", "@z"],
-            ["@z/eslint-config", "@z"],
+            ["@z/ec0lint-config", "@z"],
             ["@z/foo", "@z/foo"],
-            ["@z/eslint-config-foo", "@z/foo"]
+            ["@z/ec0lint-config-foo", "@z/foo"]
         ].forEach(([input, expected]) => {
             it(`should return ${expected} when passed ${input}`, () => {
-                const result = naming.getShorthandName(input, "eslint-config");
+                const result = naming.getShorthandName(input, "ec0lint-config");
 
                 assert.strictEqual(result, expected);
             });
@@ -56,7 +56,7 @@ describe("naming", () => {
 
     describe("getNamespaceFromTerm()", () => {
         it("should remove namespace when passed with namespace", () => {
-            const namespace = naming.getNamespaceFromTerm("@namespace/eslint-plugin-test");
+            const namespace = naming.getNamespaceFromTerm("@namespace/ec0lint-plugin-test");
 
             assert.strictEqual(namespace, "@namespace/");
         });

@@ -10,15 +10,15 @@
 //------------------------------------------------------------------------------
 
 const assert = require("assert");
-const eslintrc = require("../../dist/eslintrc.cjs");
-const universal = require("../../dist/eslintrc-universal.cjs");
+const eslintrc = require("../../dist/ec0lintrc.cjs");
+const universal = require("../../dist/ec0lintrc-universal.cjs");
 
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-describe("eslintrc CommonJS", () => {
+describe("ec0lintrc CommonJS", () => {
     it("is an object", () => {
         assert.strictEqual(typeof eslintrc, "object");
     });
@@ -54,7 +54,7 @@ describe("eslintrc CommonJS", () => {
     });
 });
 
-describe("eslintrc CommonJS Universal", () => {
+describe("ec0lintrc CommonJS Universal", () => {
     it("is an object", () => {
         assert.strictEqual(typeof universal, "object");
     });

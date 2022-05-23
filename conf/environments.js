@@ -139,7 +139,6 @@ export default new Map(Object.entries({
 
     // Frameworks
     commonjs: {
-        globals: globals.commonjs,
         parserOptions: {
             ecmaFeatures: {
                 globalReturn: true
@@ -163,9 +162,6 @@ export default new Map(Object.entries({
     },
     jquery: {
         globals: globals.jquery
-    },
-    qunit: {
-        globals: globals.qunit
     },
     prototypejs: {
         globals: globals.prototypejs

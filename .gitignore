@@ -50,8 +50,8 @@ typings/
 # Optional npm cache directory
 .npm
 
-# Optional eslint cache
-.eslintcache
+# Optional ec0lint cache
+.ec0lintcache
 
 # Microbundle cache
 .rpt2_cache/

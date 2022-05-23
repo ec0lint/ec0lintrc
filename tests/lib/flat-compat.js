@@ -56,9 +56,9 @@ describe("FlatCompat", () => {
 
         let compat;
         const baseDirectory = getFixturePath("config");
-        const pluginFixture1 = normalizePlugin((await import(pathToFileURL(path.join(baseDirectory, "node_modules/eslint-plugin-fixture1.js")))).default);
-        const pluginFixture2 = normalizePlugin((await import(pathToFileURL(path.join(baseDirectory, "node_modules/eslint-plugin-fixture2.js")))).default);
-        const pluginFixture3 = normalizePlugin((await import(pathToFileURL(path.join(baseDirectory, "node_modules/eslint-plugin-fixture3.js")))).default);
+        const pluginFixture1 = normalizePlugin((await import(pathToFileURL(path.join(baseDirectory, "node_modules/ec0lint-plugin-fixture1.js")))).default);
+        const pluginFixture2 = normalizePlugin((await import(pathToFileURL(path.join(baseDirectory, "node_modules/ec0lint-plugin-fixture2.js")))).default);
+        const pluginFixture3 = normalizePlugin((await import(pathToFileURL(path.join(baseDirectory, "node_modules/ec0lint-plugin-fixture3.js")))).default);
 
         beforeEach(() => {
             compat = new FlatCompat({
@@ -239,16 +239,16 @@ describe("FlatCompat", () => {
                 });
             });
 
-            it("should translate extends eslint:all into a string", () => {
+            it("should translate extends ec0lint:all into a string", () => {
                 const result = compat.config({
-                    extends: "eslint:all",
+                    extends: "ec0lint:all",
                     rules: {
                         foo: "warn"
                     }
                 });
 
                 assert.strictEqual(result.length, 2);
-                assert.deepStrictEqual(result[0], "eslint:all");
+                assert.deepStrictEqual(result[0], "ec0lint:all");
                 assert.deepStrictEqual(result[1], {
                     rules: {
                         foo: "warn"
@@ -256,16 +256,16 @@ describe("FlatCompat", () => {
                 });
             });
 
-            it("should translate extends [eslint:all] into a string", () => {
+            it("should translate extends [ec0lint:all] into a string", () => {
                 const result = compat.config({
-                    extends: ["eslint:all"],
+                    extends: ["ec0lint:all"],
                     rules: {
                         foo: "warn"
                     }
                 });
 
                 assert.strictEqual(result.length, 2);
-                assert.deepStrictEqual(result[0], "eslint:all");
+                assert.deepStrictEqual(result[0], "ec0lint:all");
                 assert.deepStrictEqual(result[1], {
                     rules: {
                         foo: "warn"
@@ -273,16 +273,16 @@ describe("FlatCompat", () => {
                 });
             });
 
-            it("should translate extends eslint:recommended into a string", () => {
+            it("should translate extends ec0lint:recommended into a string", () => {
                 const result = compat.config({
-                    extends: "eslint:recommended",
+                    extends: "ec0lint:recommended",
                     rules: {
                         foo: "warn"
                     }
                 });
 
                 assert.strictEqual(result.length, 2);
-                assert.deepStrictEqual(result[0], "eslint:recommended");
+                assert.deepStrictEqual(result[0], "ec0lint:recommended");
                 assert.deepStrictEqual(result[1], {
                     rules: {
                         foo: "warn"
@@ -290,16 +290,16 @@ describe("FlatCompat", () => {
                 });
             });
 
-            it("should translate extends [eslint:recommended] into a string", () => {
+            it("should translate extends [ec0lint:recommended] into a string", () => {
                 const result = compat.config({
-                    extends: ["eslint:recommended"],
+                    extends: ["ec0lint:recommended"],
                     rules: {
                         foo: "warn"
                     }
                 });
 
                 assert.strictEqual(result.length, 2);
-                assert.deepStrictEqual(result[0], "eslint:recommended");
+                assert.deepStrictEqual(result[0], "ec0lint:recommended");
                 assert.deepStrictEqual(result[1], {
                     rules: {
                         foo: "warn"
@@ -332,7 +332,7 @@ describe("FlatCompat", () => {
 
             it("should translate extends array with multiple configs into config objects", () => {
                 const result = compat.config({
-                    extends: ["fixture1", "eslint:all", "fixture2"],
+                    extends: ["fixture1", "ec0lint:all", "fixture2"],
                     rules: {
                         foo: "warn"
                     }
@@ -346,7 +346,7 @@ describe("FlatCompat", () => {
                         }
                     }
                 });
-                assert.deepStrictEqual(result[1], "eslint:all");
+                assert.deepStrictEqual(result[1], "ec0lint:all");
                 assert.deepStrictEqual(result[2], {
                     languageOptions: {
                         globals: {
@@ -389,8 +389,8 @@ describe("FlatCompat", () => {
                     }
                 });
                 assert.typeOf(result[1].files[0], "function");
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.js"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.js"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
@@ -418,8 +418,8 @@ describe("FlatCompat", () => {
                     }
                 });
                 assert.typeOf(result[1].files[0], "function");
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.js"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.js"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
@@ -447,9 +447,9 @@ describe("FlatCompat", () => {
                     }
                 });
                 assert.typeOf(result[1].files[0], "function");
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.js"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.jsm"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.js"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.jsm"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
@@ -478,8 +478,8 @@ describe("FlatCompat", () => {
                     }
                 });
                 assert.typeOf(result[1].files[0], "function");
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.js"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.js"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
@@ -508,8 +508,8 @@ describe("FlatCompat", () => {
                     }
                 });
                 assert.typeOf(result[1].files[0], "function");
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.js"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.js"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
@@ -538,10 +538,10 @@ describe("FlatCompat", () => {
                     }
                 });
                 assert.typeOf(result[1].files[0], "function");
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.js"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.test.jsx"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.test.js"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.js"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.test.jsx"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.test.js"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
@@ -579,20 +579,20 @@ describe("FlatCompat", () => {
                 });
 
                 assert.typeOf(result[1].files[0], "function");
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.jsx"));
-                assert.isTrue(result[1].files[0]("/usr/eslint/foo.js"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.test.jsx"));
-                assert.isFalse(result[1].files[0]("/usr/eslint/foo.test.js"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.jsx"));
+                assert.isTrue(result[1].files[0]("/usr/ec0lint/foo.js"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.test.jsx"));
+                assert.isFalse(result[1].files[0]("/usr/ec0lint/foo.test.js"));
                 assert.deepStrictEqual(result[1].rules, {
                     foo: "warn"
                 });
 
 
                 assert.typeOf(result[2].files[0], "function");
-                assert.isTrue(result[2].files[0]("/usr/eslint/foo.mdx"));
-                assert.isTrue(result[2].files[0]("/usr/eslint/foo.md"));
-                assert.isFalse(result[2].files[0]("/usr/eslint/foo.test.mdx"));
-                assert.isFalse(result[2].files[0]("/usr/eslint/foo.test.md"));
+                assert.isTrue(result[2].files[0]("/usr/ec0lint/foo.mdx"));
+                assert.isTrue(result[2].files[0]("/usr/ec0lint/foo.md"));
+                assert.isFalse(result[2].files[0]("/usr/ec0lint/foo.test.mdx"));
+                assert.isFalse(result[2].files[0]("/usr/ec0lint/foo.test.md"));
                 assert.deepStrictEqual(result[2].rules, {
                     bar: "error"
                 });
@@ -867,22 +867,22 @@ describe("FlatCompat", () => {
             });
         });
 
-        it("should translate extends eslint:all into a string", () => {
-            const result = compat.extends("eslint:all");
+        it("should translate extends ec0lint:all into a string", () => {
+            const result = compat.extends("ec0lint:all");
 
             assert.strictEqual(result.length, 1);
-            assert.deepStrictEqual(result[0], "eslint:all");
+            assert.deepStrictEqual(result[0], "ec0lint:all");
         });
 
-        it("should translate extends eslint:recommended into a string", () => {
-            const result = compat.extends("eslint:recommended");
+        it("should translate extends ec0lint:recommended into a string", () => {
+            const result = compat.extends("ec0lint:recommended");
 
             assert.strictEqual(result.length, 1);
-            assert.deepStrictEqual(result[0], "eslint:recommended");
+            assert.deepStrictEqual(result[0], "ec0lint:recommended");
         });
 
         it("should translate extends array with multiple configs into config objects", () => {
-            const result = compat.extends("fixture1", "eslint:all", "fixture2");
+            const result = compat.extends("fixture1", "ec0lint:all", "fixture2");
 
             assert.strictEqual(result.length, 3);
             assert.deepStrictEqual(result[0], {
@@ -892,7 +892,7 @@ describe("FlatCompat", () => {
                     }
                 }
             });
-            assert.deepStrictEqual(result[1], "eslint:all");
+            assert.deepStrictEqual(result[1], "ec0lint:all");
             assert.deepStrictEqual(result[2], {
                 languageOptions: {
                     globals: {
@@ -929,7 +929,7 @@ describe("FlatCompat", () => {
                         rules: {},
                         environments: {},
                         processors: {},
-                        ...(await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/eslint-plugin-fixture1.js")))).default
+                        ...(await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/ec0lint-plugin-fixture1.js")))).default
                     }
                 }
             });
@@ -943,7 +943,7 @@ describe("FlatCompat", () => {
 
         it("should translate plugins with processors", async () => {
             const result = compat.plugins("fixture2");
-            const plugin = (await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/eslint-plugin-fixture2.js")))).default;
+            const plugin = (await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/ec0lint-plugin-fixture2.js")))).default;
 
             assert.strictEqual(result.length, 2);
             assert.deepStrictEqual(result[0], {
@@ -965,7 +965,7 @@ describe("FlatCompat", () => {
 
         it("should translate multiple plugins", async () => {
             const result = compat.plugins("fixture1", "fixture2");
-            const plugin = (await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/eslint-plugin-fixture2.js")))).default;
+            const plugin = (await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/ec0lint-plugin-fixture2.js")))).default;
 
             assert.strictEqual(result.length, 2);
             assert.deepStrictEqual(result[0], {
@@ -979,7 +979,7 @@ describe("FlatCompat", () => {
                         rules: {},
                         environments: {},
                         processors: {},
-                        ...(await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/eslint-plugin-fixture1.js")))).default
+                        ...(await import(pathToFileURL(path.join(compat.baseDirectory, "node_modules/ec0lint-plugin-fixture1.js")))).default
                     },
                     fixture2: {
                         configs: {},

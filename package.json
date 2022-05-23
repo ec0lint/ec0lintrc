@@ -1,18 +1,19 @@
 {
-  "name": "@eslint/eslintrc",
-  "version": "1.2.1",
-  "description": "The legacy ESLintRC config file format for ESLint",
+  "name": "@ec0lint/ec0lintrc",
+  "version": "0.0.15",
+  "author": "Malwina Kubas @malwinq",
+  "description": "ec0lint configuration",
   "type": "module",
-  "main": "./dist/eslintrc.cjs",
+  "main": "./dist/ec0lintrc.cjs",
   "exports": {
     ".": {
       "import": "./lib/index.js",
-      "require": "./dist/eslintrc.cjs"
+      "require": "./dist/ec0lintrc.cjs"
     },
     "./package.json": "./package.json",
     "./universal": {
       "import": "./lib/index-universal.js",
-      "require": "./dist/eslintrc-universal.cjs"
+      "require": "./dist/ec0lintrc-universal.cjs"
     }
   },
   "files": [
@@ -28,35 +29,28 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "rollup -c",
-    "lint": "eslint . --report-unused-disable-directives",
+    "lint": "ec0lint .",
     "fix": "npm run lint -- --fix",
-    "test": "mocha -R progress -c 'tests/lib/*.cjs' && c8 mocha -R progress -c 'tests/lib/**/*.js'",
-    "generate-release": "eslint-generate-release",
-    "generate-alpharelease": "eslint-generate-prerelease alpha",
-    "generate-betarelease": "eslint-generate-prerelease beta",
-    "generate-rcrelease": "eslint-generate-prerelease rc",
-    "publish-release": "eslint-publish-release"
+    "test": "mocha -R progress -c 'tests/lib/*.cjs' && c8 mocha -R progress -c 'tests/lib/**/*.js'"
   },
-  "repository": "eslint/eslintrc",
+  "repository": "ec0lint/ec0lintrc",
   "keywords": [
-    "ESLint",
-    "ESLintRC",
+    "ec0lint",
+    "ec0lintrc",
     "Configuration"
   ],
   "author": "Nicholas C. Zakas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eslint/eslintrc/issues"
+    "url": "https://github.com/ec0lint/ec0lintrc/issues"
   },
-  "homepage": "https://github.com/eslint/eslintrc#readme",
+  "homepage": "TBD",
   "devDependencies": {
     "c8": "^7.7.3",
     "chai": "^4.3.4",
+    "ec0lint": "^0.0.27",
+    "ec0lint-config-ec0lint": "^0.0.8",
     "eslint": "^7.31.0",
-    "eslint-config-eslint": "^7.0.0",
-    "eslint-plugin-jsdoc": "^35.4.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-release": "^3.2.0",
     "fs-teardown": "^0.1.3",
     "mocha": "^9.0.3",
     "rollup": "^2.54.0",
