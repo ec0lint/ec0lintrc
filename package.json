@@ -1,6 +1,6 @@
 {
   "name": "@ec0lint/ec0lintrc",
-  "version": "0.0.15",
+  "version": "1.0.0",
   "author": "Malwina Kubas @malwinq",
   "description": "ec0lint configuration",
   "type": "module",
@@ -39,17 +39,16 @@
     "ec0lintrc",
     "Configuration"
   ],
-  "author": "Nicholas C. Zakas",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ec0lint/ec0lintrc/issues"
   },
-  "homepage": "TBD",
+  "homepage": "http://ec0lint.com",
   "devDependencies": {
     "c8": "^7.7.3",
     "chai": "^4.3.4",
-    "ec0lint": "^0.0.27",
-    "ec0lint-config-ec0lint": "^0.0.8",
+    "ec0lint": "^0.0.34",
+    "ec0lint-config-ec0lint": "^1.0.0",
     "eslint": "^7.31.0",
     "fs-teardown": "^0.1.3",
     "mocha": "^9.0.3",
