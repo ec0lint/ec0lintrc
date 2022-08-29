@@ -37,7 +37,7 @@ describe("ConfigArray", () => {
                 });
 
                 for (let i = 0; i < elements.length; ++i) {
-                    it(`should have ${JSON.stringify(elements[i])} at configArray[${i}].`, () => { // ec0lint-disable-line no-loop-func
+                    it(`should have ${JSON.stringify(elements[i])} at configArray[${i}].`, () => { // eslint-disable-line no-loop-func
                         assert.strictEqual(configArray[i], elements[i]);
                     });
                 }
@@ -702,7 +702,7 @@ describe("ConfigArray", () => {
             { filePaths: [filename, `${filename}.ts`] },
             { filePaths: [filename, `${filename}.ts`, path.join(dirname, "foo.js")] }
         ]) {
-            describe(`after it called 'extractConfig(filePath)' ${filePaths.length} time(s) with ${JSON.stringify(filePaths, null, 4)}, the returned array`, () => { // ec0lint-disable-line no-loop-func
+            describe(`after it called 'extractConfig(filePath)' ${filePaths.length} time(s) with ${JSON.stringify(filePaths, null, 4)}, the returned array`, () => { // eslint-disable-line no-loop-func
                 let configs;
                 let usedConfigs;
 
@@ -716,7 +716,7 @@ describe("ConfigArray", () => {
                 });
 
                 for (let i = 0; i < filePaths.length; ++i) {
-                    it(`should contain 'configs[${i}]'.`, () => { // ec0lint-disable-line no-loop-func
+                    it(`should contain 'configs[${i}]'.`, () => { // eslint-disable-line no-loop-func
                         assert(usedConfigs.includes(configs[i]));
                     });
                 }
