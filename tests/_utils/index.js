@@ -24,11 +24,16 @@ function unIndent(strings, ...values) {
     const text = strings
         .map((s, i) => (i === 0 ? s : values[i - 1] + s))
         .join("");
-    const lines = text.replace(/^\n/u, "").replace(/\n\s*$/u, "").split("\n");
-    const lineIndents = lines.filter(line => line.trim()).map(line => line.match(/ */u)[0].length);
+    const lines = text
+        .replace(/^\n/u, "")
+        .replace(/\n\s*$/u, "")
+        .split("\n");
+    const lineIndents = lines
+        .filter((line) => line.trim())
+        .map((line) => line.match(/ */u)[0].length);
     const minLineIndent = Math.min(...lineIndents);
 
-    return lines.map(line => line.slice(minLineIndent)).join("\n");
+    return lines.map((line) => line.slice(minLineIndent)).join("\n");
 }
 
 /**
@@ -42,7 +47,9 @@ function unIndent(strings, ...values) {
 function createCustomTeardown({ cwd, files = {} }) {
     const { prepare, cleanup, getPath } = createTeardown(
         cwd,
-        ...Object.keys(files).map(filename => addFile(filename, files[filename]))
+        ...Object.keys(files).map((filename) =>
+            addFile(filename, files[filename])
+        )
     );
 
     return { prepare, cleanup, getPath };
@@ -52,7 +59,4 @@ function createCustomTeardown({ cwd, files = {} }) {
 // Exports
 //-----------------------------------------------------------------------------
 
-export {
-    unIndent,
-    createCustomTeardown
-};
+export { unIndent, createCustomTeardown };

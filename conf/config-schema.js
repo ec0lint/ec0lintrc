@@ -11,7 +11,7 @@ const baseConfigProperties = {
     overrides: {
         type: "array",
         items: { $ref: "#/definitions/overrideConfig" },
-        additionalItems: false
+        additionalItems: false,
     },
     parser: { type: ["string", "null"] },
     parserOptions: { type: "object" },
@@ -22,7 +22,7 @@ const baseConfigProperties = {
     noInlineConfig: { type: "boolean" },
     reportUnusedDisableDirectives: { type: "boolean" },
 
-    ecmaFeatures: { type: "object" } // deprecated; logs a warning when used
+    ecmaFeatures: { type: "object" }, // deprecated; logs a warning when used
 };
 
 const configSchema = {
@@ -33,9 +33,9 @@ const configSchema = {
                 {
                     type: "array",
                     items: { type: "string" },
-                    additionalItems: false
-                }
-            ]
+                    additionalItems: false,
+                },
+            ],
         },
         stringOrStringsRequired: {
             oneOf: [
@@ -44,9 +44,9 @@ const configSchema = {
                     type: "array",
                     items: { type: "string" },
                     additionalItems: false,
-                    minItems: 1
-                }
-            ]
+                    minItems: 1,
+                },
+            ],
         },
 
         // Config at top-level.
@@ -55,9 +55,9 @@ const configSchema = {
             properties: {
                 root: { type: "boolean" },
                 ignorePatterns: { $ref: "#/definitions/stringOrStrings" },
-                ...baseConfigProperties
+                ...baseConfigProperties,
             },
-            additionalProperties: false
+            additionalProperties: false,
         },
 
         // Config in `overrides`.
@@ -66,14 +66,14 @@ const configSchema = {
             properties: {
                 excludedFiles: { $ref: "#/definitions/stringOrStrings" },
                 files: { $ref: "#/definitions/stringOrStringsRequired" },
-                ...baseConfigProperties
+                ...baseConfigProperties,
             },
             required: ["files"],
-            additionalProperties: false
-        }
+            additionalProperties: false,
+        },
     },
 
-    $ref: "#/definitions/objectConfig"
+    $ref: "#/definitions/objectConfig",
 };
 
 export default configSchema;

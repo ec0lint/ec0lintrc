@@ -654,7 +654,7 @@ describe("CascadingConfigArrayFactory", () => {
                      * exceeds the default test timeout, so raise it just for this hook.
                      * Mocha uses `this` to set timeouts on an individual hook level.
                      */
-                    this.timeout(60 * 1000); // ec0lint-disable-line no-invalid-this
+                    this.timeout(60 * 1000); // eslint-disable-line no-invalid-this
 
                     fixtureDir = `${systemTempDir}/ec0lint/fixtures`;
                     sh.mkdir("-p", fixtureDir);
@@ -703,7 +703,7 @@ describe("CascadingConfigArrayFactory", () => {
                     });
                     const actual = getConfig(factory);
 
-                    assert.strictEqual(actual.rules.strict[1], "global");
+                    assert.strictEqual(actual.rules["lighter-http"][0], "error");
                 });
 
                 it("should not retain configs from previous directories when called multiple times", () => {
@@ -1882,7 +1882,7 @@ describe("CascadingConfigArrayFactory", () => {
                      * exceeds the default test timeout, so raise it just for this hook.
                      * Mocha uses `this` to set timeouts on an individual hook level.
                      */
-                    this.timeout(60 * 1000); // ec0lint-disable-line no-invalid-this
+                    this.timeout(60 * 1000); // eslint-disable-line no-invalid-this
 
                     fixtureDir = `${systemTempDir}/ec0lint/fixtures`;
                     sh.mkdir("-p", fixtureDir);
@@ -1931,7 +1931,7 @@ describe("CascadingConfigArrayFactory", () => {
                     });
                     const actual = getConfig(factory);
 
-                    assert.strictEqual(actual.rules.strict[1], "global");
+                    assert.strictEqual(actual.rules["lighter-http"][0], "error");
                 });
 
                 it("should not retain configs from previous directories when called multiple times", () => {
