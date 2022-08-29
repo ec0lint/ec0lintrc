@@ -2,23 +2,21 @@
 
 module.exports = {
     root: true,
-    extends: [
-        "ec0lint"
-    ],
+    extends: ["ec0lint"],
     env: {
         es6: true,
-        node: true
+        node: true,
     },
     parserOptions: {
         ecmaVersion: 2020,
-        sourceType: "module"
+        sourceType: "module",
     },
 
     overrides: [
         {
             files: ["tests/**/*"],
             env: { mocha: true },
-            rules: {  }
-        }
-    ]
+            rules: {},
+        },
+    ],
 };
