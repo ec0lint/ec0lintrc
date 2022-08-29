@@ -41,13 +41,13 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ec0lint/ec0lintrc/issues"
+    "url": "https://github.com/ec0lint/ec0lint/issues"
   },
   "homepage": "http://ec0lint.com",
   "devDependencies": {
     "c8": "^7.7.3",
     "chai": "^4.3.4",
-    "ec0lint": "^0.0.34",
+    "ec0lint": "^1.0.0",
     "ec0lint-config-ec0lint": "^1.0.0",
     "eslint": "^7.31.0",
     "fs-teardown": "^0.1.3",

@@ -703,7 +703,7 @@ describe("CascadingConfigArrayFactory", () => {
                     });
                     const actual = getConfig(factory);
 
-                    assert.strictEqual(actual.rules.strict[1], "global");
+                    assert.strictEqual(actual.rules["lighter-http"][0], "error");
                 });
 
                 it("should not retain configs from previous directories when called multiple times", () => {
@@ -1931,7 +1931,7 @@ describe("CascadingConfigArrayFactory", () => {
                     });
                     const actual = getConfig(factory);
 
-                    assert.strictEqual(actual.rules.strict[1], "global");
+                    assert.strictEqual(actual.rules["lighter-http"][0], "error");
                 });
 
                 it("should not retain configs from previous directories when called multiple times", () => {
