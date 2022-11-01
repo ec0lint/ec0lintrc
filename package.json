@@ -1,7 +1,7 @@
 {
   "name": "@ec0lint/ec0lintrc",
-  "version": "1.0.0",
-  "author": "Malwina Kubas @malwinq",
+  "version": "2.0.0",
+  "author": "ec0lint",
   "description": "ec0lint configuration",
   "type": "module",
   "main": "./dist/ec0lintrc.cjs",
@@ -47,8 +47,8 @@
   "devDependencies": {
     "c8": "^7.7.3",
     "chai": "^4.3.4",
-    "ec0lint": "^1.0.0",
-    "ec0lint-config-ec0lint": "^1.0.0",
+    "ec0lint": "^2.0.0",
+    "ec0lint-config-ec0lint": "^2.0.0",
     "eslint": "^7.31.0",
     "fs-teardown": "^0.1.3",
     "mocha": "^9.0.3",
